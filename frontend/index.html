@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Department Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Department Management</h1>
+        <form id="departmentForm">
+            <input type="text" id="deptName" placeholder="Enter Department Name" required>
+            <button type="submit">Add Department</button>
+        </form>
+
+        <h2>Departments List</h2>
+        <ul id="departmentList"></ul>
+    </div>
+
+    <!-- Update Department Modal -->
+    <div id="updateDepartmentModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeUpdateModal()">&times;</span>
+            <h2>Update Department</h2>
+            <form id="updateDepartmentForm">
+                <input type="text" id="updateDeptId" placeholder="Department ID" required readonly>
+                <input type="text" id="updateDeptName" placeholder="Department Name" required>
+                <button type="submit">Update Department</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Delete Department Confirmation -->
+    <div id="deleteDepartmentModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeDeleteModal()">&times;</span>
+            <h2>Delete Department</h2>
+            <p>Are you sure you want to delete the department <span id="deleteDeptName"></span>?</p>
+            <input type="hidden" id="deleteDeptId"> <!-- Hidden input to store ID for deletion -->
+            <button onclick="confirmDeleteDepartment()">Yes, Delete</button>
+            <button onclick="closeDeleteModal()">Cancel</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
